@@ -44,7 +44,7 @@ sed -i -e 's/^#ParallelDownloads = 5/ParallelDownloads = 10/' -e '/^#\[multilib\
 ```
 6. Установка программ
 ```bash
-pacstrap /mnt base linux linux-firmware linux-headers sudo dhcpcd lvm2 vim nano glances fastfetch iwd openssh git base-devel zsh curl
+pacstrap /mnt base linux linux-firmware linux-headers sudo networkmanager lvm2 vim nano glances fastfetch openssh git base-devel zsh curl bluez bluez-utils xorg xorg-server xorg-xinit xorg-xrandr xdotool xorg-setxkbmap xmodmap ttf-dejavu ttf-liberation noto-fonts noto-fonts-cjk noto-fonts-emoji ttf-jetbrains-mono-nerd
 ```
 7. Перенос конфигураций, создание fstab и вход в систему
 ```bash
@@ -96,18 +96,18 @@ reboot
 ```bash
 sudo pacman -Syy nvidia nvidia-utils vulkan-icd-loader lib32-nvidia-utils lib32-vulkan-icd-loader opencl-nvidia lib32-opencl-nvidia --noconfirm
 ```
-3. Xorg
+1. Xorg (Кандидат на удаление)
 ```bash
 sudo pacman -S xorg xorg-server xorg-xinit xorg-xrandr xdotool --noconfirm 
 ```
-4. Оконный менеджер Awesome
+1. Оконный менеджер Awesome
 ```bash
 sudo pacman -S awesome xorg-xprop rofi alacritty --noconfirm
 mkdir -p /home/statix/.config/awesome
 cp /etc/xdg/awesome/rc.lua /home/statix/.config/awesome/rc.lua || true
 chown -R statix:users /home/statix/.config/awesome
 ```
-5. Xinitrc
+1. Xinitrc
 ```bash
 cat > /home/statix/.xinitrc <<'XINIT'
 #!/bin/sh
@@ -116,7 +116,7 @@ XINIT
 chown statix:users /home/statix/.xinitrc
 chmod +x /home/statix/.xinitrc
 ```
-6. Запуск скриптов для автонастройки
+1. Запуск скриптов для автонастройки
 ```bash
 git clone https://github.com/statix05/svetOS
 find svetOS/scripts -type f -name "*.sh" -exec chmod +x {} \;
