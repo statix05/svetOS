@@ -66,7 +66,7 @@ echo 'root:1234' | sudo chpasswd
 
 2. Запуск основных служб
 ```bash
-systemctl enable sshd dhcpcd iwd
+systemctl enable NetworkManager sshd bluetooth
 ```
 3. Время и часовой пояс
 ```bash
@@ -96,18 +96,18 @@ reboot
 ```bash
 sudo pacman -Syy nvidia nvidia-utils vulkan-icd-loader lib32-nvidia-utils lib32-vulkan-icd-loader opencl-nvidia lib32-opencl-nvidia --noconfirm
 ```
-1. Xorg (Кандидат на удаление)
+3. Xorg (Кандидат на удаление)
 ```bash
 sudo pacman -S xorg xorg-server xorg-xinit xorg-xrandr xdotool --noconfirm 
 ```
-1. Оконный менеджер Awesome
+4. Оконный менеджер Awesome
 ```bash
 sudo pacman -S awesome xorg-xprop rofi alacritty --noconfirm
 mkdir -p /home/statix/.config/awesome
 cp /etc/xdg/awesome/rc.lua /home/statix/.config/awesome/rc.lua || true
 chown -R statix:users /home/statix/.config/awesome
 ```
-1. Xinitrc
+5. Xinitrc
 ```bash
 cat > /home/statix/.xinitrc <<'XINIT'
 #!/bin/sh
@@ -116,7 +116,7 @@ XINIT
 chown statix:users /home/statix/.xinitrc
 chmod +x /home/statix/.xinitrc
 ```
-1. Запуск скриптов для автонастройки
+6. Запуск скриптов для автонастройки
 ```bash
 git clone https://github.com/statix05/svetOS
 find svetOS/scripts -type f -name "*.sh" -exec chmod +x {} \;
