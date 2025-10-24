@@ -44,7 +44,7 @@ sed -i -e 's/^#ParallelDownloads = 5/ParallelDownloads = 10/' -e '/^#\[multilib\
 ```
 6. Установка программ
 ```bash
-pacstrap /mnt base linux linux-firmware linux-headers sudo networkmanager lvm2 vim nano glances fastfetch openssh git base-devel zsh curl bluez bluez-utils xorg xorg-server xorg-xinit xorg-xrandr xdotool xorg-setxkbmap xmodmap ttf-dejavu ttf-liberation noto-fonts noto-fonts-cjk noto-fonts-emoji ttf-jetbrains-mono-nerd
+pacstrap /mnt base linux linux-firmware linux-headers sudo networkmanager lvm2 vim nano glances fastfetch openssh git base-devel zsh curl bluez bluez-utils xorg xorg-server xorg-xinit xorg-xrandr xdotool xorg-setxkbmap xorg-xmodmap ttf-dejavu ttf-liberation noto-fonts noto-fonts-cjk noto-fonts-emoji ttf-jetbrains-mono-nerd
 ```
 7. Перенос конфигураций, создание fstab и вход в систему
 ```bash
